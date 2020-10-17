@@ -1,2 +1,2 @@
 # google-dork-bot
-Bot for google hacking
+GOOGLE HACKING BOT
