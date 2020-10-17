@@ -1,6 +1,5 @@
 #By Gustavo Reis/ Nyx/ BeyondBirthday
 
-
 import requests
 import re
 
@@ -86,54 +85,54 @@ class Google_dork_bot:
                 page = self.html_page[start:end]
 
                 tittle = page[page.find(">", page.find('href')) +1: page.find('</a>')]
-                print('Title --> ', self.clean_html(tittle))
+                print('\033[1;32mTitle --> ', self.clean_html(tittle))
 
                 page_url = page[ page.find('"', page.find('<a href=') ) +1: page.find('"', page.find('<a href=') +9) ]
-                print("URL --> ", self.clean_html(page_url))
+                print("\033[1;32m URL --> ", self.clean_html(page_url))
 
-                page_text = page[page.find('"', page.find('<a href=')) +1: page.find('"', page.find('<a href=') +9)]
-                print("Text --> ", self.clean_html(page_text))
+                page_text = page[ page.find('<span class="st">') : page.find('</span></div>')]
+                print("\033[1;32mText --> ", self.clean_html(page_text))
                 print("\n")
 
             self.count += 100
 
         if len(self.proxy_fail) != 0 or len(self.proxy_detected_by_google_bots) != 0:
-            print('The following proxies / IPs have failed, change them: ')
+            print('\033[1;31mThe following proxies / IPs have failed, change them: ')
             for i in range(len(self.proxy_fail)):
                 print(" --> " + self.proxy_fail[i])
 
         if len(self.proxy_detected_by_google_bots) != 0:
-           print('The following proxies / IPs have been detected by Google, please change them:') 
+           print('\033[1;31mThe following proxies / IPs have been detected by Google, please change them:') 
            for i in range(self.proxy_detected_by_google_bots):
                print(" --> " + self.proxy_detected_by_google_bots[i])
         
         if not self.end_search:
-            print("Change the value of the 'count' variable to ", self.count)
+            print("\033[1;31mChange the value of the 'count' variable to ", self.count)
 
 
 
 
 def without_proxies():
-    dork = str(input("Type a dork --> "))
+    dork = str(input("\033[1;92mType a dork --> "))
     gdork = Google_dork_bot(dork)
     gdork.init_bot()
 
 
 def with_proxies():
-    number_of_proxies = int(input("Type a number of proxies --> "))
+    number_of_proxies = int(input("\033[1;92mType a number of proxies --> "))
 
     list_proxies = []
     for i in range(len(number_of_proxies)):
-        number_of_proxies[i] = str(input(f"Type the {i+1} proxy --> "))
+        number_of_proxies[i] = str(input(f"\033[1;92mType the {i+1} proxy --> "))
 
-    dork = str(input("Type a dork --> "))
+    dork = str(input("\033[1;92mType a dork --> "))
     gdork = Google_dork_bot(dork, list_proxies)
     gdork.init_bot()
 
 
 def init():
     while(1):
-        print("\n###### Welcome to GOOGLE DORK BOT ######\n")
+        print("\n\033[1;34m ###### Welcome to GOOGLE DORK BOT ######\n")
         print("1 --> Without proxies")
         print("2 --> With Proxies")
         print("3 --> Exit")
@@ -148,7 +147,7 @@ def init():
             print("BYE...")
             break
         else:
-            print("Invalid option")
+            print("\033[1;31m Invalid option")
 
 
 init()
