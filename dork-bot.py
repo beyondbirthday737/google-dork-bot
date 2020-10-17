@@ -1,3 +1,6 @@
+#By Gustavo Reis/ Nyx/ BeyondBirthday
+
+
 import requests
 import re
 
