@@ -1,4 +1,4 @@
-#By Gustavo Reis/ Nyx/ BeyondBirthday
+#By Gustavo Reis
 
 import requests
 import re
