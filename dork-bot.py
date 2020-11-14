@@ -1,5 +1,3 @@
-#By Gustavo Reis
-
 import requests
 import re
 
